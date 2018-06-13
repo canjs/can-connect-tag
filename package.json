@@ -47,8 +47,8 @@
     ]
   },
   "dependencies": {
-    "can-connect": "^2.0.4",
     "can-dom-mutate": "^1.0.4",
+    "can-namespace": "^1.0.0",
     "can-observation": "^4.0.1",
     "can-observation-recorder": "^1.1.1",
     "can-reflect": "^1.16.3",
@@ -60,6 +60,7 @@
     "steal-stache": "^4.0.0"
   },
   "devDependencies": {
+    "can-connect": "^3.0.0-pre.9",
     "can-define": "^2.3.3",
     "can-dom-events": "^1.2.0",
     "can-fixture": "^2.0.3",

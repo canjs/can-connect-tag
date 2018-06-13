@@ -35,8 +35,6 @@
 
 require("can-stache-bindings");
 
-var connect = require("can-connect");
-
 var Observation = require('can-observation');
 var expression = require("can-stache/src/expression");
 var viewCallbacks = require("can-view-callbacks");
@@ -47,6 +45,8 @@ var canSymbol = require("can-symbol");
 var domMutate = require('can-dom-mutate');
 var domMutateNode = require("can-dom-mutate/node");
 var each = require("can-reflect").each;
+var namespace = require("can-namespace");
+
 
 var convertToValue = function(arg){
 	if(typeof arg === "function") {
@@ -56,7 +56,7 @@ var convertToValue = function(arg){
 	}
 };
 
-connect.tag = function(tagName, connection){
+function connectTag(tagName, connection){
 
 	var removeBrackets = function(value, open, close){
 		open = open || "{";
@@ -142,6 +142,6 @@ connect.tag = function(tagName, connection){
 			}
 		});
 	});
-};
+}
 
-module.exports = connect.tag;
+module.exports = namespace.connectTag = connectTag;
