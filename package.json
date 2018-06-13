@@ -1,0 +1,80 @@
+{
+  "name": "can-connect-tag",
+  "version": "0.0.0",
+  "description": "Create custom elements for your connection models",
+  "homepage": "https://canjs.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/canjs/can-connect-tag.git"
+  },
+  "author": {
+    "name": "DoneJS Core Team",
+    "email": "core@donejs.com",
+    "url": "http://donejs.com"
+  },
+  "scripts": {
+    "preversion": "npm test && npm run build",
+    "version": "git commit -am \"Update version number\" && git checkout -b release && git add -f dist/",
+    "postpublish": "git push --tags && git checkout master && git branch -D release && git push",
+    "testee": "testee test.html --browsers firefox",
+    "test": "npm run jshint && npm run testee",
+    "jshint": "jshint ./*.js --config",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "build": "node build.js",
+    "develop": "done-serve --static --develop --port 8080"
+  },
+  "main": "dist/cjs/can-connect-tag",
+  "browser": {
+    "transform": [
+      "cssify"
+    ]
+  },
+  "browserify": {
+    "transform": [
+      "cssify"
+    ]
+  },
+  "keywords": [
+    "canjs",
+    "donejs",
+    "donejs-plugin"
+  ],
+  "steal": {
+    "main": "can-connect-tag",
+    "configDependencies": [
+      "live-reload"
+    ],
+    "npmIgnore": [
+      "testee",
+      "generator-donejs",
+      "donejs-cli",
+      "steal-tools"
+    ],
+    "plugins": [
+      "steal-less",
+      "steal-stache"
+    ]
+  },
+  "dependencies": {
+    "can-component": "^4.0.2",
+    "can-define": "^2.0.1",
+    "can-stache": "^4.1.0",
+    "can-view-autorender": "^4.0.0",
+    "cssify": "^0.6.0",
+    "steal-less": "^1.2.2",
+    "steal-stache": "^4.0.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1",
+    "steal": "^1.6.5",
+    "steal-qunit": "^1.0.1",
+    "steal-tools": "^1.11.3",
+    "testee": "^0.7.0",
+    "generator-donejs": "^2.1.0",
+    "donejs-cli": "^2.0.0",
+    "done-serve": "^2.0.0"
+  },
+  "license": "MIT"
+}
