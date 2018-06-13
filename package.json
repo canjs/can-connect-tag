@@ -25,24 +25,13 @@
     "build": "node build.js",
     "develop": "done-serve --static --develop --port 8080"
   },
-  "main": "dist/cjs/can-connect-tag",
-  "browser": {
-    "transform": [
-      "cssify"
-    ]
-  },
-  "browserify": {
-    "transform": [
-      "cssify"
-    ]
-  },
+  "main": "can-connect-tag",
   "keywords": [
     "canjs",
     "donejs",
     "donejs-plugin"
   ],
   "steal": {
-    "main": "can-connect-tag",
     "configDependencies": [
       "live-reload"
     ],
@@ -53,28 +42,38 @@
       "steal-tools"
     ],
     "plugins": [
-      "steal-less",
-      "steal-stache"
+      "steal-stache",
+      "steal-css"
     ]
   },
   "dependencies": {
-    "can-component": "^4.0.2",
-    "can-define": "^2.0.1",
-    "can-stache": "^4.1.0",
-    "can-view-autorender": "^4.0.0",
-    "cssify": "^0.6.0",
-    "steal-less": "^1.2.2",
-    "steal-stache": "^4.0.1"
+    "can-connect": "^2.0.4",
+    "can-dom-mutate": "^1.0.4",
+    "can-observation": "^4.0.1",
+    "can-observation-recorder": "^1.1.1",
+    "can-reflect": "^1.16.3",
+    "can-stache": "^4.5.5",
+    "can-stache-bindings": "^4.2.5",
+    "can-symbol": "^1.6.1",
+    "can-view-callbacks": "^4.1.2",
+    "can-view-nodelist": "^4.1.0",
+    "steal-stache": "^4.0.0"
   },
   "devDependencies": {
+    "can-define": "^2.3.3",
+    "can-dom-events": "^1.2.0",
+    "can-fixture": "^2.0.3",
+    "can-list": "^4.0.2",
+    "can-map": "^4.0.2",
+    "can-query-logic": "^0.8.10",
+    "can-set-legacy": "^0.3.0",
+    "can-simple-observable": "^2.0.5",
+    "jquery": "^3.3.1",
     "jshint": "^2.9.1",
     "steal": "^1.6.5",
     "steal-qunit": "^1.0.1",
     "steal-tools": "^1.11.3",
-    "testee": "^0.7.0",
-    "generator-donejs": "^2.1.0",
-    "donejs-cli": "^2.0.0",
-    "done-serve": "^2.0.0"
+    "testee": "^0.7.0"
   },
   "license": "MIT"
 }
