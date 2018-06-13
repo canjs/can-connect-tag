@@ -1,36 +1,4 @@
-/**
- * @module can-connect-tag
- * @parent can-data-modeling
- * @collection can-ecosystem
- * @package ./package.json
- *
- * Makes either getList or getInstance
- * @param {String} tagName
- * @param {Object} connection
- *
- * @body
- *
- * ## Use
- *
- * ```js
- * import {connectTag} from "can";
- * connectTag("order-model", connection);
- * ```
- *
- * ```
- * <order-model get-list="{type=orderType}">
- *   <ul>
- *   {{#isPending}}<li>Loading</li>{{/isPending}}
- *   {{#isResolved}}
- *     {{#each value}}
- *       <li>{{name}}</li>
- *     {{/each}}
- *   {{/isResolved}}
- *   </ul>
- * </order-model>
- * ```
- *
- */
+
 
 
 require("can-stache-bindings");
