@@ -12,7 +12,6 @@ var tag = require("./can-connect-tag");
 var fixture = require("can-fixture");
 var findAllTemplate = require("./tag_find_all_test.stache");
 var findOneTemplate = require("./tag_find_one_test.stache");
-var stache = require("can-stache");
 var canSet = require("can-set-legacy");
 var QueryLogic = require("can-query-logic");
 require("can-stache-bindings");
@@ -192,7 +191,7 @@ if(System.env !== 'canjs-test') {
 				}
 
 			},
-			"GET /api/people": function(request){
+			"GET /api/people": function(){
 				return {data: [{id: 1, type: "first"},{id: 2, type: "second"}]};
 			}
 		});
