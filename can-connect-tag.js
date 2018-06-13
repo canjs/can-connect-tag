@@ -1,6 +1,8 @@
 /**
- * @module can-connect/can/tag/tag
- * @parent can-connect.modules
+ * @module can-connect-tag
+ * @parent can-data-modeling
+ * @collection can-ecosystem
+ * @package ./package.json
  *
  * Makes either getList or getInstance
  * @param {String} tagName
@@ -10,8 +12,9 @@
  *
  * ## Use
  *
- * ```
- * connect.tag("order-model", connection);
+ * ```js
+ * import {connectTag} from "can";
+ * connectTag("order-model", connection);
  * ```
  *
  * ```
