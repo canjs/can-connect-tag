@@ -5,8 +5,6 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/canjs/can-connect-tag/blob/master/LICENSE)
 [![npm version](https://badge.fury.io/js/can-connect-tag.svg)](https://www.npmjs.com/package/can-connect-tag)
 [![Travis build status](https://travis-ci.org/canjs/can-connect-tag.svg?branch=master)](https://travis-ci.org/canjs/can-connect-tag)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/canjs/can-connect-tag?branch=master&svg=true)](https://ci.appveyor.com/project/matthewp/can-connect-tag)
-[![Coverage status](https://coveralls.io/repos/github/canjs/can-connect-tag/badge.svg?branch=master)](https://coveralls.io/github/canjs/can-connect-tag?branch=master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/canjs/can-connect-tag.svg)](https://greenkeeper.io/)
 
 Create custom elements for your connection models
