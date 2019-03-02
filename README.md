@@ -1,32 +1,28 @@
 # can-connect-tag
 
-[![Build Status](https://travis-ci.org/canjs/can-connect-tag.svg?branch=master)](https://travis-ci.org/canjs/can-connect-tag)
+[![Join our Slack](https://img.shields.io/badge/slack-join%20chat-611f69.svg)](https://www.bitovi.com/community/slack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join our Discourse](https://img.shields.io/discourse/https/forums.bitovi.com/posts.svg)](https://forums.bitovi.com/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/canjs/can-connect-tag/blob/master/LICENSE)
+[![npm version](https://badge.fury.io/js/can-connect-tag.svg)](https://www.npmjs.com/package/can-connect-tag)
+[![Travis build status](https://travis-ci.org/canjs/can-connect-tag.svg?branch=master)](https://travis-ci.org/canjs/can-connect-tag)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/canjs/can-connect-tag?branch=master&svg=true)](https://ci.appveyor.com/project/matthewp/can-connect-tag)
+[![Coverage status](https://coveralls.io/repos/github/canjs/can-connect-tag/badge.svg?branch=master)](https://coveralls.io/github/canjs/can-connect-tag?branch=master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/canjs/can-connect-tag.svg)](https://greenkeeper.io/)
 
 Create custom elements for your connection models
 
-## Usage
+## Documentation
 
-### ES6 use
+Read the [can-connect-tag API docs on CanJS.com](https://canjs.com/doc/can-connect-tag.html).
 
-With StealJS, you can import this module directly in a template that is autorendered:
+## Changelog
 
-```js
-import plugin from 'can-connect-tag';
-```
+See the [latest releases on GitHub](https://github.com/canjs/can-connect-tag/releases).
 
-### CommonJS use
+## Contributing
 
-Use `require` to load `can-connect-tag` and everything else
-needed to create a template that uses `can-connect-tag`:
+The [contribution guide](https://github.com/canjs/can-connect-tag/blob/master/CONTRIBUTING.md) has information on getting help, reporting bugs, developing locally, and more.
 
-```js
-var plugin = require("can-connect-tag");
-```
+## License
 
-### Standalone use
-
-Load the `global` version of the plugin:
-
-```html
-<script src='./node_modules/can-connect-tag/dist/global/can-connect-tag.js'></script>
-```
+[MIT](https://github.com/canjs/can-connect-tag/blob/master/LICENSE)
