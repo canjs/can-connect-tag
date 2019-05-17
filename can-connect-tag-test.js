@@ -20,10 +20,10 @@ var domEvents = require('can-dom-events');
 var insertedEvent = require('can-dom-mutate/dom-events').inserted;
 
 QUnit.module("can-connect/can/tag", {
-	beforeEach: function(assert) {
+	beforeEach: function() {
 		this.undo = domEvents.addEvent(insertedEvent);
 	},
-	afterEach: function(assert) {
+	afterEach: function() {
 		this.undo();
 	}
 });
