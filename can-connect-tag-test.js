@@ -20,15 +20,15 @@ var domEvents = require('can-dom-events');
 var insertedEvent = require('can-dom-mutate/dom-events').inserted;
 
 QUnit.module("can-connect/can/tag", {
-	setup: function () {
+	beforeEach: function() {
 		this.undo = domEvents.addEvent(insertedEvent);
 	},
-	teardown: function () {
+	afterEach: function() {
 		this.undo();
 	}
 });
 
-QUnit.test("getList", function(){
+QUnit.test("getList", function(assert) {
 
 
 	var Person = DefineMap.extend({seal: true}, {});
@@ -57,28 +57,28 @@ QUnit.test("getList", function(){
 		}
 	});
 	var type = new SimpleObservable("first");
-	stop();
+	var done = assert.async();
 
 	var resolvedCalls = 0;
 
 	var frag = findAllTemplate({
 		pending: function(){
-			ok(true, "called pending");
+			assert.ok(true, "called pending");
 		},
 		resolved: function(context, el){
 			resolvedCalls++;
-			ok(true, "called resolved");
+			assert.ok(true, "called resolved");
 			if(resolvedCalls === 1) {
-				ok(true, "called resolved");
-				equal(el.childNodes[1].innerHTML, "1", "added id");
+				assert.ok(true, "called resolved");
+				assert.equal(el.childNodes[1].innerHTML, "1", "added id");
 				setTimeout(function(){
 					type.set("second");
 				},1);
 			} else {
-				ok(true, "called resolved");
-				equal(el.childNodes[1].innerHTML, "3", "added id");
+				assert.ok(true, "called resolved");
+				assert.equal(el.childNodes[1].innerHTML, "3", "added id");
 				$("#qunit-fixture").empty();
-				start();
+				done();
 			}
 
 		},
@@ -88,7 +88,7 @@ QUnit.test("getList", function(){
 });
 
 
-QUnit.test("get", function(){
+QUnit.test("get", function(assert) {
 
 
 	var Person = CanMap.extend({});
@@ -119,35 +119,35 @@ QUnit.test("get", function(){
 		}
 	});
 	var personId = new SimpleObservable(1);
-	stop();
+	var done = assert.async();
 
 	var resolvedCalls = 0;
 
 	var frag = findOneTemplate({
 		pending: function(){
-			ok(true, "called pending");
+			assert.ok(true, "called pending");
 		},
 		resolved: function(context, el){
 			resolvedCalls++;
-			ok(true, "called resolved");
+			assert.ok(true, "called resolved");
 			if(resolvedCalls === 1) {
-				ok(true, "called resolved");
-				equal(el.innerHTML, "first", "added id");
+				assert.ok(true, "called resolved");
+				assert.equal(el.innerHTML, "first", "added id");
 				setTimeout(function(){
 					personId.set(2);
 				},1);
 			} else {
-				ok(true, "called resolved");
-				equal(el.innerHTML, "second", "added id");
+				assert.ok(true, "called resolved");
+				assert.equal(el.innerHTML, "second", "added id");
 				$("#qunit-fixture").empty();
-				start();
+				done();
 			}
 
 		},
 		personId: personId,
 		rejected: function(){
-			ok(false,"rejected");
-			start();
+			assert.ok(false,"rejected");
+			done();
 		}
 	});
 	$("<div>").appendTo("#qunit-fixture").append(frag);
@@ -180,10 +180,10 @@ if(System.env !== 'canjs-test') {
 			"GET /api/people/{id}": function(request){
 
 				if(request.data.id === "1") {
-					ok(resolvedCalls >= 1, "got data we already resolved from cache");
+					assert.ok(resolvedCalls >= 1, "got data we already resolved from cache");
 					return {id: 1, type: "first"};
 				} else {
-					ok(resolvedCalls >= 2, "got data we already resolved from cache");
+					assert.ok(resolvedCalls >= 2, "got data we already resolved from cache");
 					setTimeout(function(){
 						done();
 					}, 100);
@@ -203,32 +203,32 @@ if(System.env !== 'canjs-test') {
 
 			var frag = findOneTemplate({
 				pending: function(){
-					ok(true, "called pending");
+					assert.ok(true, "called pending");
 				},
 				resolved: function(context, el){
 					resolvedCalls++;
-					ok(true, "called resolved");
+					assert.ok(true, "called resolved");
 					if(resolvedCalls === 1) {
 
-						equal(el.innerHTML, "first", "first id");
+						assert.equal(el.innerHTML, "first", "first id");
 						setTimeout(function(){
 							personId.set(2);
 
 							setTimeout(function(){
-								equal($("person-model .resolved").text(), "second", "updated id");
+								assert.equal($("person-model .resolved").text(), "second", "updated id");
 								$("#qunit-fixture").empty();
 							},20);
 
 						},1);
 					} else {
-						ok(true,"not called immediately, because .then cant be with Promises");
+						assert.ok(true,"not called immediately, because .then cant be with Promises");
 					}
 
 				},
 				personId: personId,
 				rejected: function(){
-					ok(false,"rejected");
-					start();
+					assert.ok(false,"rejected");
+					done();
 				}
 			});
 
