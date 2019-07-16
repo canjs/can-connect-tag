@@ -47,7 +47,7 @@
     ]
   },
   "dependencies": {
-    "can-dom-mutate": "^1.0.4",
+    "can-dom-mutate": "^2.0.0",
     "can-namespace": "^1.0.0",
     "can-observation": "^4.0.1",
     "can-observation-recorder": "^1.1.1",
@@ -56,11 +56,10 @@
     "can-stache-bindings": "^4.2.5",
     "can-symbol": "^1.6.1",
     "can-view-callbacks": "^4.1.2",
-    "can-view-nodelist": "^4.1.0",
     "steal-stache": "^4.0.0"
   },
   "devDependencies": {
-    "can-connect": "^3.0.0-pre.9",
+    "can-connect": "canjs/can-connect#major",
     "can-define": "^2.3.3",
     "can-dom-events": "^1.2.0",
     "can-fixture": "^2.0.3",
