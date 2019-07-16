@@ -51,7 +51,7 @@
     "can-stache": "canjs/can-stache#major",
     "can-stache-bindings": "canjs/can-stache-bindings#major",
     "can-symbol": "^1.6.1",
-    "can-view-callbacks": "^4.1.2"
+    "can-view-callbacks": "canjs/can-view-callbacks#major"
   },
   "devDependencies": {
     "can-connect": "canjs/can-connect#major",
