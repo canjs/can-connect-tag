@@ -10,14 +10,29 @@ var $ = require("jquery");
 var superMap = require("can-connect/can/super-map/");
 var tag = require("./can-connect-tag");
 var fixture = require("can-fixture");
-var findAllTemplate = require("./tag_find_all_test.stache");
-var findOneTemplate = require("./tag_find_one_test.stache");
 var canSet = require("can-set-legacy");
 var QueryLogic = require("can-query-logic");
+var stache = require("can-stache");
+var stacheBindings = require("can-stache-bindings");
+
+stache.addBindings(stacheBindings);
+
 require("can-stache-bindings");
 
 var domEvents = require('can-dom-events');
 var insertedEvent = require('can-dom-mutate/dom-events').inserted;
+
+
+var findAllTemplate = stache("<person-model getList='type=type'>"+
+	"{{#if isPending}}<span class='pending' on:inserted='../pending()'></span>{{/if}}"+
+	"{{#if isResolved}}<span class='resolved' on:inserted='../resolved(scope.context, scope.element)'>{{#each value}}<span>{{id}}</span>{{/each}}</span>{{/if}}"+
+"</person-model>");
+
+var findOneTemplate = stache("<person-model get='{id=personId}'>"+
+	"{{#if isPending}}<span class='pending' on:inserted='../pending()'></span>{{/if}}"+
+	"{{#if isResolved}}<span class='resolved' on:inserted='../resolved(scope.context, scope.element)' pid='{{value.id}}'>{{value.type}}</span>{{/if}}"+
+"</person-model>");
+
 
 QUnit.module("can-connect/can/tag", {
 	beforeEach: function() {
