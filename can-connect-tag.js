@@ -9,7 +9,6 @@ var viewCallbacks = require("can-view-callbacks");
 var ObservationRecorder = require("can-observation-recorder");
 var canReflect = require("can-reflect");
 var canSymbol = require("can-symbol");
-var domMutate = require('can-dom-mutate');
 var domMutateNode = require("can-dom-mutate/node");
 var each = require("can-reflect").each;
 var namespace = require("can-namespace");
@@ -96,13 +95,6 @@ function connectTag(tagName, connection){
 
 		// Append the resulting document fragment to the element
 		domMutateNode.appendChild.call(el, frag);
-
-
-		var removalDisposal = domMutate.onNodeDisconnected(el, function () {
-			if (!el.ownerDocument.contains(el)) {
-				removalDisposal();
-			}
-		});
 	});
 }
 
