@@ -7,10 +7,8 @@ var Observation = require('can-observation');
 var expression = require("can-stache/src/expression");
 var viewCallbacks = require("can-view-callbacks");
 var ObservationRecorder = require("can-observation-recorder");
-var nodeLists = require("can-view-nodelist");
 var canReflect = require("can-reflect");
 var canSymbol = require("can-symbol");
-var domMutate = require('can-dom-mutate');
 var domMutateNode = require("can-dom-mutate/node");
 var each = require("can-reflect").each;
 var namespace = require("can-namespace");
@@ -91,24 +89,12 @@ function connectTag(tagName, connection){
 
 		el[canSymbol.for('can.viewModel')] = request;
 
-		var nodeList = nodeLists.register([], undefined, tagData.parentNodeList || true);
-
 		var frag = tagData.subtemplate ?
-					tagData.subtemplate( tagData.scope.add(request), tagData.options, nodeList ) :
+					tagData.subtemplate( tagData.scope.add(request), tagData.options ) :
 					document.createDocumentFragment();
 
 		// Append the resulting document fragment to the element
 		domMutateNode.appendChild.call(el, frag);
-
-		// update the nodeList with the new children so the mapping gets applied
-		nodeLists.update(nodeList, el.childNodes);
-
-		var removalDisposal = domMutate.onNodeRemoval(el, function () {
-			if (!el.ownerDocument.contains(el)) {
-				removalDisposal();
-				nodeLists.unregister(nodeList);
-			}
-		});
 	});
 }
 

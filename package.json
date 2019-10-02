@@ -1,6 +1,6 @@
 {
   "name": "can-connect-tag",
-  "version": "1.0.1",
+  "version": "2.0.0-pre.4",
   "description": "Create custom elements for your connection models",
   "homepage": "https://canjs.com",
   "repository": {
@@ -15,13 +15,14 @@
   "scripts": {
     "preversion": "npm test && npm run build",
     "version": "git commit -am \"Update version number\" && git checkout -b release && git add -f dist/",
-    "postpublish": "git push --tags && git checkout master && git branch -D release && git push",
+    "postpublish": "git push --tags && git checkout - && git branch -D release && git push",
     "testee": "testee test.html --browsers firefox",
     "test": "npm run jshint && npm run testee",
     "jshint": "jshint ./*.js --config",
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
+    "release:pre": "npm version prerelease && npm publish --tag pre",
     "build": "node build.js",
     "develop": "done-serve --static --develop --port 8080"
   },
@@ -40,34 +41,28 @@
       "generator-donejs",
       "donejs-cli",
       "steal-tools"
-    ],
-    "plugins": [
-      "steal-stache",
-      "steal-css"
     ]
   },
   "dependencies": {
-    "can-dom-mutate": "^1.0.4",
+    "can-dom-mutate": "^2.0.0",
     "can-namespace": "^1.0.0",
-    "can-observation": "^4.0.1",
+    "can-observation": "^4.2.0",
     "can-observation-recorder": "^1.1.1",
     "can-reflect": "^1.16.3",
-    "can-stache": "^4.5.5",
-    "can-stache-bindings": "^4.2.5",
+    "can-stache": "^5.0.0-pre.3",
+    "can-stache-bindings": "^5.0.0-pre.3",
     "can-symbol": "^1.6.1",
-    "can-view-callbacks": "^4.1.2",
-    "can-view-nodelist": "^4.1.0",
-    "steal-stache": "^4.0.0"
+    "can-view-callbacks": "^5.0.0-pre.1"
   },
   "devDependencies": {
-    "can-connect": "^3.0.0-pre.9",
+    "can-connect": "^4.0.0-pre.0",
     "can-define": "^2.3.3",
     "can-dom-events": "^1.2.0",
     "can-fixture": "^2.0.3",
     "can-list": "^4.0.2",
     "can-map": "^4.0.2",
-    "can-query-logic": "^0.8.10",
-    "can-set-legacy": "^0.3.0",
+    "can-query-logic": "^1.0.0",
+    "can-set-legacy": "^1.0.0",
     "can-simple-observable": "^2.0.5",
     "jquery": "^3.3.1",
     "jshint": "^2.9.1",
